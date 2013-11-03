@@ -7,6 +7,7 @@
 //
 
 #import "CardGameViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
 
@@ -36,6 +37,14 @@
         [sender setTitle:@"A♣️" forState:UIControlStateNormal];
     }
     self.flipCount++;
+}
+
+- (void)viewDidLoad
+{
+    PlayingCardDeck *deck = [[PlayingCardDeck alloc] init];
+    for (int i = 0; i < 53; i++) {
+        NSLog(@"%@", [deck drawRandomCard].contents);
+    }    
 }
 
 @end

@@ -23,6 +23,9 @@
 		5B76AB7F18258B8000B30B2C /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76AB7E18258B8000B30B2C /* MatchismoTests.m */; };
 		5B76AB8A1826551500B30B2C /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76AB891826551500B30B2C /* Card.m */; };
 		5B76AB8D182655C300B30B2C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 5B76AB8C182655C300B30B2C /* README */; };
+		5BC4BC041826619100C71211 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4BC031826619100C71211 /* Deck.m */; };
+		5BC4BC071826651200C71211 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4BC061826651200C71211 /* PlayingCard.m */; };
+		5BC4BC0A182669D100C71211 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4BC09182669D100C71211 /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,12 @@
 		5B76AB881826551500B30B2C /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
 		5B76AB891826551500B30B2C /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		5B76AB8C182655C300B30B2C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		5BC4BC021826619100C71211 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
+		5BC4BC031826619100C71211 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		5BC4BC051826651200C71211 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCard.h; path = Model/PlayingCard.h; sourceTree = "<group>"; };
+		5BC4BC061826651200C71211 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
+		5BC4BC08182669D100C71211 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
+		5BC4BC09182669D100C71211 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +173,12 @@
 			children = (
 				5B76AB881826551500B30B2C /* Card.h */,
 				5B76AB891826551500B30B2C /* Card.m */,
+				5BC4BC051826651200C71211 /* PlayingCard.h */,
+				5BC4BC061826651200C71211 /* PlayingCard.m */,
+				5BC4BC021826619100C71211 /* Deck.h */,
+				5BC4BC031826619100C71211 /* Deck.m */,
+				5BC4BC08182669D100C71211 /* PlayingCardDeck.h */,
+				5BC4BC09182669D100C71211 /* PlayingCardDeck.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -267,8 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC4BC071826651200C71211 /* PlayingCard.m in Sources */,
+				5BC4BC041826619100C71211 /* Deck.m in Sources */,
 				5B76AB6418258B8000B30B2C /* CardGameAppDelegate.m in Sources */,
 				5B76AB6A18258B8000B30B2C /* CardGameViewController.m in Sources */,
+				5BC4BC0A182669D100C71211 /* PlayingCardDeck.m in Sources */,
 				5B76AB6018258B8000B30B2C /* main.m in Sources */,
 				5B76AB8A1826551500B30B2C /* Card.m in Sources */,
 			);
@@ -479,6 +497,7 @@
 				5B76AB8418258B8000B30B2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B76AB8518258B8000B30B2C /* Build configuration list for PBXNativeTarget "MatchismoTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +506,7 @@
 				5B76AB8718258B8000B30B2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
