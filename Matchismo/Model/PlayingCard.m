@@ -54,19 +54,23 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
+    int numOtherCards = [otherCards count];
     
-    if ([otherCards count] == 1) {
-        id card = [otherCards firstObject];
-        if ([card isKindOfClass:[PlayingCard class]]) {
-            PlayingCard *otherCard = (PlayingCard *)card;
-            if ([self.suit isEqualToString:otherCard.suit]) {
-                score = 1;
-            } else if (self.rank == otherCard.rank) {
-                score = 4;
+    if (numOtherCards) {
+        for (Card *card in otherCards) {
+            if ([card isKindOfClass:[PlayingCard class]]) {
+                PlayingCard *otherCard = (PlayingCard *)card;
+                if ([self.suit isEqualToString:otherCard.suit]) {
+                    score += 1;
+                } else if (self.rank == otherCard.rank) {
+                    score += 4;
+                }
             }
         }
     }
-    
+    if (numOtherCards > 1) {
+        score += [[otherCards firstObject] match:[otherCards subarrayWithRange:NSMakeRange(1, numOtherCards - 1)]];
+    }
     return score;
 }
 

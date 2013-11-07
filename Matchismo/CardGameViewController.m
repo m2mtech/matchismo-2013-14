@@ -16,6 +16,7 @@
 @property (nonatomic, strong) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 
 @end
 
@@ -26,6 +27,7 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
+        [self changeModeSelector:self.modeSelector];
     }
     return _game;
 }
@@ -35,9 +37,13 @@
     return [[PlayingCardDeck alloc] init];
 }
     
-- (IBAction)dealButtonPressed:(id)sender {
+- (IBAction)touchDealButton:(UIButton *)sender {
     self.game = nil;
     [self updateUI];
+}
+
+- (IBAction)changeModeSelector:(UISegmentedControl *)sender {
+    self.game.maxMatchingCards = [[sender titleForSegmentAtIndex:sender.selectedSegmentIndex] integerValue];
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
