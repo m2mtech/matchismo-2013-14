@@ -44,14 +44,18 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
+        Card *nextCard = [self.deck drawRandomCard];
+        if (nextCard) {
+            [self.deck addCard:nextCard];
+        } else {
+            sender.hidden = YES;
+        }
     } else {
         Card *card = [self.deck drawRandomCard];
         if (card) {
             [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                               forState:UIControlStateNormal];
             [sender setTitle:card.contents forState:UIControlStateNormal];
-        } else {
-            [sender removeFromSuperview];
         }
     }
     self.flipCount++;
