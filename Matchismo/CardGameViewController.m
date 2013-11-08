@@ -18,10 +18,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 @property (weak, nonatomic) IBOutlet UILabel *flipDescription;
+@property (strong, nonatomic) NSMutableArray *flipHistory;
+@property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 @end
 
 @implementation CardGameViewController
+
+- (NSMutableArray *)flipHistory
+{
+    if (!_flipHistory) {
+        _flipHistory = [NSMutableArray array];
+    }
+    return _flipHistory;
+}
 
 - (CardMatchingGame *)game
 {
@@ -41,11 +51,32 @@
 - (IBAction)touchDealButton:(UIButton *)sender {
     self.modeSelector.enabled = YES;
     self.game = nil;
+    self.flipHistory = nil;
     [self updateUI];
 }
 
 - (IBAction)changeModeSelector:(UISegmentedControl *)sender {
     self.game.maxMatchingCards = [[sender titleForSegmentAtIndex:sender.selectedSegmentIndex] integerValue];
+}
+
+- (void)setSliderRange
+{
+    int maxValue = [self.flipHistory count] - 1;
+    self.historySlider.maximumValue = maxValue;
+    [self.historySlider setValue:maxValue animated:YES];
+}
+
+- (IBAction)changeSlider:(UISlider *)sender {
+    int sliderValue;
+    sliderValue = lroundf(self.historySlider.value);
+    [self.historySlider setValue:sliderValue animated:NO];
+    
+    if ([self.flipHistory count]) {
+        self.flipDescription.alpha =
+        (sliderValue + 1 < [self.flipHistory count]) ? 0.6 : 1.0;
+        self.flipDescription.text =
+        [self.flipHistory objectAtIndex:sliderValue];
+    }
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
@@ -88,6 +119,12 @@
         }
         
         self.flipDescription.text = description;
+        self.flipDescription.alpha = 1;
+        
+        if (![description isEqualToString:@""] && ![[self.flipHistory lastObject] isEqualToString:description]) {
+            [self.flipHistory addObject:description];
+            [self setSliderRange];
+        }
     }
 }
 
