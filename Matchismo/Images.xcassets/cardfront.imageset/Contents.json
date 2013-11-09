@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "blank card rounded corner.png"
+      "filename" : "cardfront-small.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "blank card hi-res.png"
+      "filename" : "cardfront-small@2x.png"
     }
   ],
   "info" : {
