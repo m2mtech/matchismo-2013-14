@@ -16,4 +16,8 @@
 // for subclasses
 - (Deck *)createDeck; // abstract
 
+- (NSAttributedString *)titleForCard:(Card *)card;
+- (UIImage *)backgroundImageForCard:(Card *)card;
+- (void)updateUI;
+
 @end
