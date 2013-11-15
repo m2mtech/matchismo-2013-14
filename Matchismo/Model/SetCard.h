@@ -20,4 +20,6 @@
 + (NSArray *)validShadings;
 + (NSUInteger)maxNumber;
 
++ (NSArray *)cardsFromText:(NSString *)text;
+
 @end

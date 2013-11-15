@@ -20,4 +20,6 @@
 - (UIImage *)backgroundImageForCard:(Card *)card;
 - (void)updateUI;
 
+@property (weak, nonatomic) IBOutlet UILabel *flipDescription;
+
 @end

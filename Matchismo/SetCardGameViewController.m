@@ -70,6 +70,27 @@
     return [UIImage imageNamed:card.chosen ? @"setCardSelected" : @"setCard"];
 }
 
+- (void)updateUI
+{
+    [super updateUI];
+    
+    NSMutableAttributedString *description = [self.flipDescription.attributedText mutableCopy];
+    
+    NSArray *setCards = [SetCard cardsFromText:description.string];
+
+    if (setCards) {
+        for (SetCard *setCard in setCards) {
+            NSRange range = [description.string rangeOfString:setCard.contents];
+            if (range.location != NSNotFound) {
+                [description replaceCharactersInRange:range
+                                 withAttributedString:[self titleForCard:setCard]];
+            }
+        }
+        
+        [self.flipDescription setAttributedText:description];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
