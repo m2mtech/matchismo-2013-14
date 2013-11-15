@@ -17,6 +17,7 @@
 
 - (Deck *)createDeck
 {
+    self.gameType = @"Playing Cards";
     return [[PlayingCardDeck alloc] init];
 }
 

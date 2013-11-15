@@ -426,11 +426,12 @@
                     <connections>
                         <segue destination="V7r-xT-WKx" kind="relationship" relationship="viewControllers" id="9pP-Gx-3Vb"/>
                         <segue destination="LVY-Nh-yEN" kind="relationship" relationship="viewControllers" id="jgl-je-YK2"/>
+                        <segue destination="SV6-yr-tLf" kind="relationship" relationship="viewControllers" id="bCh-pm-nuy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZH-jk-mZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="376"/>
+            <point key="canvasLocation" x="11" y="653"/>
         </scene>
         <!--Set Card Game View Controller - Set-->
         <scene sceneID="h1t-hf-UZX">
@@ -1001,10 +1002,43 @@
             </objects>
             <point key="canvasLocation" x="574" y="653"/>
         </scene>
+        <!--Scores View Controller - Scores-->
+        <scene sceneID="Hln-K4-rKJ">
+            <objects>
+                <viewController id="SV6-yr-tLf" customClass="ScoresViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qbc-DA-g3T"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bkg-7H-p2W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R7l-0c-zt2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ksZ-GO-hCf">
+                                <rect key="frame" x="0.0" y="20" width="320" height="410"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scores" image="scores" id="mnR-sG-bJ0"/>
+                    <connections>
+                        <outlet property="scoresTextView" destination="ksZ-GO-hCf" id="vFM-PG-bjI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6u-F3-Ku5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="1256"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cardback" width="40" height="60"/>
         <image name="playingcards" width="30" height="30"/>
+        <image name="scores" width="30" height="30"/>
         <image name="setCard" width="40" height="40"/>
         <image name="setcards" width="30" height="30"/>
     </resources>

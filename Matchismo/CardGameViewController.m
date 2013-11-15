@@ -9,6 +9,7 @@
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
 #import "HistoryViewController.h"
+#import "GameResult.h"
 
 @interface CardGameViewController ()
 
@@ -18,9 +19,18 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
+@property (strong, nonatomic) GameResult *gameResult;
+
 @end
 
 @implementation CardGameViewController
+
+- (GameResult *)gameResult
+{
+    if (!_gameResult) _gameResult = [[GameResult alloc] init];
+    _gameResult.gameType = self.gameType;
+    return _gameResult;
+}
 
 - (NSMutableArray *)flipHistory
 {
@@ -49,6 +59,7 @@
     self.modeSelector.enabled = YES;
     self.game = nil;
     self.flipHistory = nil;
+    self.gameResult = nil;
     [self updateUI];
 }
 
@@ -96,6 +107,7 @@
         cardButton.enabled = !card.matched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.gameResult.score = self.game.score;
     
     if (self.game) {
         NSString *description = @"";

@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *flipDescription;
 @property (strong, nonatomic) NSMutableArray *flipHistory; // of NSStrings
 
+@property (strong, nonatomic) NSString *gameType;
+
 @end
