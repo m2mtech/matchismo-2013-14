@@ -965,7 +965,7 @@
         <scene sceneID="lKw-fR-9q4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V7r-xT-WKx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playing Cards" id="Kbr-Cp-y0e"/>
+                    <tabBarItem key="tabBarItem" title="Playing Cards" image="playingcards" id="Kbr-Cp-y0e"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0eW-IS-P2C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -985,7 +985,7 @@
         <scene sceneID="UnW-Zq-6hy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LVY-Nh-yEN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Set" id="yqn-cf-B8o"/>
+                    <tabBarItem key="tabBarItem" title="Set" image="setcards" id="yqn-cf-B8o"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ee-HA-JNl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1004,7 +1004,9 @@
     </scenes>
     <resources>
         <image name="cardback" width="40" height="60"/>
+        <image name="playingcards" width="30" height="30"/>
         <image name="setCard" width="40" height="40"/>
+        <image name="setcards" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
