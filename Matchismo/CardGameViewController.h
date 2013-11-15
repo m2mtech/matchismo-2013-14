@@ -21,5 +21,6 @@
 - (void)updateUI;
 
 @property (weak, nonatomic) IBOutlet UILabel *flipDescription;
+@property (strong, nonatomic) NSMutableArray *flipHistory; // of NSStrings
 
 @end
