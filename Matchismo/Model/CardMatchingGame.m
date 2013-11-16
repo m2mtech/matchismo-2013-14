@@ -49,6 +49,9 @@
                 self = nil;
                 break;
             }
+            _matchBonus = MATCH_BONUS;
+            _mismatchPenalty = MISMATCH_PENALTY;
+            _flipCost = COST_TO_CHOOSE;
         }
     }
     
@@ -79,19 +82,19 @@ static const int COST_TO_CHOOSE = 1;
             if ([otherCards count] + 1 == self.maxMatchingCards) {
                 int matchScore = [card match:otherCards];
                 if (matchScore) {
-                    self.lastScore = matchScore * MATCH_BONUS;
+                    self.lastScore = matchScore * self.matchBonus;
                     card.matched = YES;
                     for (Card *otherCard in otherCards) {
                         otherCard.matched = YES;
                     }
                 } else {
-                    self.lastScore = - MISMATCH_PENALTY;
+                    self.lastScore = - self.mismatchPenalty;
                     for (Card *otherCard in otherCards) {
                         otherCard.chosen = NO;
                     }
                 }
             }
-            self.score += self.lastScore - COST_TO_CHOOSE;
+            self.score += self.lastScore - self.flipCost;
             card.chosen = YES;
         }
     }

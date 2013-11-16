@@ -10,6 +10,7 @@
 #import "CardMatchingGame.h"
 #import "HistoryViewController.h"
 #import "GameResult.h"
+#import "GameSettings.h"
 
 @interface CardGameViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 
 @property (strong, nonatomic) GameResult *gameResult;
+@property (strong, nonatomic) GameSettings *gameSettings;
 
 @end
 
@@ -30,6 +32,12 @@
     if (!_gameResult) _gameResult = [[GameResult alloc] init];
     _gameResult.gameType = self.gameType;
     return _gameResult;
+}
+
+- (GameSettings *)gameSettings
+{
+    if (!_gameSettings) _gameSettings = [[GameSettings alloc] init];
+    return _gameSettings;
 }
 
 - (NSMutableArray *)flipHistory
@@ -45,6 +53,10 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[self createDeck]];
+        _game.matchBonus = self.gameSettings.matchBonus;
+        _game.mismatchPenalty = self.gameSettings.mismatchPenalty;
+        _game.flipCost = self.gameSettings.flipCost;
+        
         [self changeModeSelector:self.modeSelector];
     }
     return _game;
@@ -156,6 +168,15 @@
             [segue.destinationViewController setHistory:self.flipHistory];
         }
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.game.matchBonus = self.gameSettings.matchBonus;
+    self.game.mismatchPenalty = self.gameSettings.mismatchPenalty;
+    self.game.flipCost = self.gameSettings.flipCost;
 }
 
 @end
