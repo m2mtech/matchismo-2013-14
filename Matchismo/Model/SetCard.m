@@ -49,7 +49,7 @@
 
 - (NSString *)contents
 {
-    return [NSString stringWithFormat:@"%@:%@:%@:%d", self.symbol, self.color, self.shading, self.number];
+    return [NSString stringWithFormat:@"%@:%@:%@:%lu", self.symbol, self.color, self.shading, (unsigned long)self.number];
 }
 
 + (NSArray *)validColors

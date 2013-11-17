@@ -54,7 +54,7 @@
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
-    int numOtherCards = [otherCards count];
+    NSUInteger numOtherCards = [otherCards count];
     
     if (numOtherCards) {
         for (Card *card in otherCards) {

@@ -32,11 +32,10 @@
 
 - (void)setLabel:(UILabel *)label forSlider:(UISlider *)slider
 {
-    int sliderValue;
-    sliderValue = lroundf(slider.value);
+    NSUInteger sliderValue = lroundf(slider.value);
     [slider setValue:sliderValue animated:NO];
     
-    label.text = [NSString stringWithFormat:@"%d", sliderValue];
+    label.text = [NSString stringWithFormat:@"%lu", (unsigned long)sliderValue];
 }
 
 - (IBAction)matchBonusSliderChanged:(UISlider *)sender {
