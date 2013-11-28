@@ -10,7 +10,6 @@
 #import "SetCardDeck.h"
 #import "SetCard.h"
 #import "CardMatchingGame.h"
-#import "HistoryViewController.h"
 
 @interface SetCardGameViewController ()
 
@@ -72,50 +71,10 @@
     return [UIImage imageNamed:card.chosen ? @"setCardSelected" : @"setCard"];
 }
 
-- (NSAttributedString *)replaceCardDescriptionsInText:(NSAttributedString *)text
-{
-    NSMutableAttributedString *newText = [text mutableCopy];
-    
-    NSArray *setCards = [SetCard cardsFromText:text.string];
-    
-    if (setCards) {
-        for (SetCard *setCard in setCards) {
-            NSRange range = [newText.string rangeOfString:setCard.contents];
-            if (range.location != NSNotFound) {
-                [newText replaceCharactersInRange:range
-                             withAttributedString:[self titleForCard:setCard]];
-            }
-        }
-    }
-    return newText;
-}
-
-- (void)updateUI
-{
-    [super updateUI];
-    
-    self.flipDescription.attributedText = [self replaceCardDescriptionsInText:self.flipDescription.attributedText];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self updateUI];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Show History"]) {
-        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
-            NSMutableArray *attributedHistory = [NSMutableArray array];
-            for (NSString *flip in self.flipHistory) {
-                NSAttributedString *attributedFlip = [[NSAttributedString alloc] initWithString:flip];
-                [attributedHistory addObject:[self replaceCardDescriptionsInText:attributedFlip]];
-            }
-            [segue.destinationViewController setHistory:attributedHistory];
-        }
-    }
 }
 
 
