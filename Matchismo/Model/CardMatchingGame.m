@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *cards; // of Card
 @property (nonatomic, strong) NSArray *lastChosenCards;
 @property (nonatomic, readwrite) NSInteger lastScore;
+@property (strong, nonatomic) Deck *deck;
 
 @end
 
@@ -45,6 +46,7 @@
     self = [super init];
     
     if (self) {
+        _deck = deck;
         for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
             if (card) {
@@ -108,5 +110,24 @@ static const int COST_TO_CHOOSE = 1;
 {
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
+
+- (void)drawNewCard
+{
+    Card *card = [self.deck drawRandomCard];
+    if (card) {
+        [self.cards addObject:card];
+    }
+}
+
+- (BOOL)deckIsEmpty
+{
+    Card *card = [self.deck drawRandomCard];
+    if (card) {
+        [self.deck addCard:card];
+        return NO;
+    }
+    return YES;
+}
+
 
 @end
