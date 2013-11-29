@@ -23,6 +23,8 @@
 @property (nonatomic, readonly) NSArray *lastChosenCards;
 @property (nonatomic, readonly) NSInteger lastScore;
 
+@property (nonatomic, readonly) NSUInteger numberOfDealtCards;
+
 @property (nonatomic) int matchBonus;
 @property (nonatomic) int mismatchPenalty;
 @property (nonatomic) int flipCost;

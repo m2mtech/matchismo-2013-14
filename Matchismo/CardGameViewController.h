@@ -15,11 +15,13 @@
 // protected
 // for subclasses
 - (Deck *)createDeck; // abstract
+- (UIView *)createViewForCard:(Card *)card;
+- (void)updateView:(UIView *)view forCard:(Card *)card;
 
-- (NSAttributedString *)titleForCard:(Card *)card;
-- (UIImage *)backgroundImageForCard:(Card *)card;
 - (void)updateUI;
 
 @property (strong, nonatomic) NSString *gameType;
+@property (nonatomic) NSUInteger numberOfStartingCards;
+@property (nonatomic) CGSize maxCardSize;
 
 @end
