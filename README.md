@@ -5,8 +5,9 @@ written in Xcode 5.0.1 for iOS7.0+
 
 ### various versions are available via branches and tags:
 
-+ [Assignment #4 Task #2](http://cs193p.m2m.at/cs193p-assignment-4-task-2-fall-2013-14/) -> [assignment4task2](https://github.com/m2mtech/matchismo-2013-14/tree/assignment4task2)
-+ [Assignment #4 Task #1](http://cs193p.m2m.at/cs193p-assignment-4-task-1-fall-2013-14/) -> [assignment4task1](https://github.com/m2mtech/matchismo-2013-14/tree/assignment4task1)
+* [Assignment #4 Task #3](http://cs193p.m2m.at/cs193p-assignment-4-task-3-fall-2013-14/) -> [assignment4task3](https://github.com/m2mtech/matchismo-2013-14/tree/assignment4task3)
+* [Assignment #4 Task #2](http://cs193p.m2m.at/cs193p-assignment-4-task-2-fall-2013-14/) -> [assignment4task2](https://github.com/m2mtech/matchismo-2013-14/tree/assignment4task2)
+* [Assignment #4 Task #1](http://cs193p.m2m.at/cs193p-assignment-4-task-1-fall-2013-14/) -> [assignment4task1](https://github.com/m2mtech/matchismo-2013-14/tree/assignment4task1)
 
 + [Assignment #3 Extra Task #4](http://cs193p.m2m.at/cs193p-assignment-3-extra-task-4-fall-2013-14/) -> [assignment3extratask4](https://github.com/m2mtech/matchismo-2013-14/tree/assignment3extratask4)
 + [Assignment #3 Extra Task #3](http://cs193p.m2m.at/cs193p-assignment-3-extra-task-3-fall-2013-14/) -> [assignment3extratask3](https://github.com/m2mtech/matchismo-2013-14/tree/assignment3extratask3)

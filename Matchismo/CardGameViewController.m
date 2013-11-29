@@ -121,20 +121,26 @@
         }];
         UIView *cardView;
         if (viewIndex == NSNotFound) {
-            cardView = [self createViewForCard:card];
-            cardView.tag = cardIndex;
-            
-            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                  action:@selector(touchCard:)];
-            [cardView addGestureRecognizer:tap];
-            
-            [self.cardViews addObject:cardView];
-            viewIndex = [self.cardViews indexOfObject:cardView];
-            [self.gridView addSubview:cardView];
+            if (!card.matched) {
+                cardView = [self createViewForCard:card];
+                cardView.tag = cardIndex;
+                
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(touchCard:)];
+                [cardView addGestureRecognizer:tap];
+                
+                [self.cardViews addObject:cardView];
+                viewIndex = [self.cardViews indexOfObject:cardView];
+                [self.gridView addSubview:cardView];
+            }
         } else {
             cardView = self.cardViews[viewIndex];
-            [self updateView:cardView forCard:card];
-            cardView.alpha = card.matched ? 0.6 : 1.0;
+            if (!card.matched) {
+                [self updateView:cardView forCard:card];
+            } else {
+                [cardView removeFromSuperview];
+                [self.cardViews removeObject:cardView];
+            }
         }
         CGRect frame = [self.grid frameOfCellAtRow:viewIndex / self.grid.columnCount
                                           inColumn:viewIndex % self.grid.columnCount];
