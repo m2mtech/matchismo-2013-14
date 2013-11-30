@@ -231,6 +231,12 @@
     return YES;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -238,6 +244,12 @@
     self.game.matchBonus = self.gameSettings.matchBonus;
     self.game.mismatchPenalty = self.gameSettings.mismatchPenalty;
     self.game.flipCost = self.gameSettings.flipCost;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    self.grid.size = self.gridView.bounds.size;
+    [self updateUI];
 }
 
 @end

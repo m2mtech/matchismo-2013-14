@@ -53,6 +53,12 @@
     [self changeScore:[sortedScores lastObject] toColor:[UIColor blueColor]];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

@@ -53,6 +53,12 @@
     self.gameSettings.flipCost = floor(sender.value);
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
