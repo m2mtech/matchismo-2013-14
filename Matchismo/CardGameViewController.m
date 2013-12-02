@@ -28,6 +28,8 @@
 
 @property (strong, nonatomic) UIDynamicAnimator *pileAnimator;
 
+@property (nonatomic) NSInteger scoreAdjustment;
+
 @end
 
 @implementation CardGameViewController
@@ -104,12 +106,24 @@
 }
 
 - (IBAction)touchAddCardsButton:(UIButton *)sender {
+    if ([[self.game findCombination] count]) {
+        self.scoreAdjustment -= self.gameSettings.mismatchPenalty * sender.tag;
+    };
+
     for (int i = 0; i < sender.tag; i++) {
         [self.game drawNewCard];
     }
     if (self.game.deckIsEmpty) {
-        sender.enabled = NO;
-        sender.alpha = 0.5;
+        //sender.enabled = NO;
+        //sender.alpha = 0.5;
+        if (![[self.game findCombination] count]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:@"No matches left ..."
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Game Over!", nil];
+            [alert show];
+        }
     }
     self.pileAnimator = nil;
     [self updateUI];
@@ -278,7 +292,7 @@
         }
     }
     
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.game.score];
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)(self.game.score + self.scoreAdjustment)];
     self.gameResult.score = self.game.score;
 }
 

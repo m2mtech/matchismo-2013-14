@@ -20,6 +20,8 @@
 
 - (void)drawNewCard;
 
+- (NSArray *)findCombination;
+
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) NSUInteger maxMatchingCards;
 @property (nonatomic, readonly) NSArray *lastChosenCards;
