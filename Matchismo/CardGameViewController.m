@@ -349,4 +349,36 @@
     [self updateUI];
 }
 
+# pragma mark - Motion detection
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self becomeFirstResponder];
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake) {
+        if (!self.pileAnimator) {
+            self.pileAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.gridView];
+            UIGravityBehavior *gravity = [[UIGravityBehavior alloc] initWithItems:self.cardViews];
+            [self.pileAnimator addBehavior:gravity];
+            UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:self.cardViews];
+            collision.translatesReferenceBoundsIntoBoundary = YES;
+            [self.pileAnimator addBehavior:collision];
+            UIDynamicItemBehavior *item = [[UIDynamicItemBehavior alloc] initWithItems:self.cardViews];
+            item.elasticity = 1.1;
+            [self.pileAnimator addBehavior:item];
+        } else {
+            self.pileAnimator = nil;
+            [self updateUI];
+        }
+    }
+}
+
 @end
