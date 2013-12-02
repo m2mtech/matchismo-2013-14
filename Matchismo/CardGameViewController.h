@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Deck.h"
+#import "CardMatchingGame.h"
+#import "GameSettings.h"
 
 @interface CardGameViewController : UIViewController
 
@@ -24,5 +26,12 @@
 @property (nonatomic) NSUInteger numberOfStartingCards;
 @property (nonatomic) CGSize maxCardSize;
 @property (nonatomic) BOOL removeMatchingCards;
+
+@property (nonatomic, strong) CardMatchingGame *game;
+@property (strong, nonatomic) GameSettings *gameSettings;
+@property (nonatomic) NSInteger scoreAdjustment;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
+- (IBAction)touchDealButton:(UIButton *)sender;
 
 @end

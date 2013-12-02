@@ -14,11 +14,7 @@
 
 @interface CardGameViewController ()
 
-@property (nonatomic, strong) CardMatchingGame *game;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
 @property (strong, nonatomic) GameResult *gameResult;
-@property (strong, nonatomic) GameSettings *gameSettings;
 
 @property (strong, nonatomic) Grid *grid;
 @property (strong, nonatomic) NSMutableArray *cardViews;
@@ -27,8 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addCardsButton;
 
 @property (strong, nonatomic) UIDynamicAnimator *pileAnimator;
-
-@property (nonatomic) NSInteger scoreAdjustment;
 
 @property (strong, nonatomic) NSArray *cheatCards;
 
