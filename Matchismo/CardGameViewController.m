@@ -30,6 +30,8 @@
 
 @property (nonatomic) NSInteger scoreAdjustment;
 
+@property (strong, nonatomic) NSArray *cheatCards;
+
 @end
 
 @implementation CardGameViewController
@@ -102,6 +104,7 @@
     self.addCardsButton.enabled = YES;
     self.addCardsButton.alpha = 1.0;
     self.pileAnimator = nil;
+    self.cheatCards = nil;
     [self updateUI];
 }
 
@@ -126,6 +129,11 @@
         }
     }
     self.pileAnimator = nil;
+    [self updateUI];
+}
+
+- (IBAction)touchCheatButton:(UIButton *)sender {
+    self.cheatCards = [self.game findCombination];
     [self updateUI];
 }
 
@@ -220,6 +228,9 @@
 
 #define CARDSPACINGINPERCENT 0.08
 
+#define CHEATSTARSIZE 0.2
+#define CHEETSTAROFFSET 0.1
+
 - (void)updateUI
 {
     for (NSUInteger cardIndex = 0;
@@ -255,6 +266,21 @@
             cardView = self.cardViews[viewIndex];
             if (!card.matched) {
                 [self updateView:cardView forCard:card];
+                
+                for (UIView *subView in cardView.subviews) {
+                    if ([subView isKindOfClass:[UIImageView class]]) {
+                        [subView removeFromSuperview];
+                    }
+                }
+                if ([self.cheatCards containsObject:card]) {
+                    UIImage *image = [UIImage imageNamed:@"star.png"];
+                    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+                    CGFloat min = cardView.bounds.size.width;
+                    if (cardView.bounds.size.height < min) min = cardView.bounds.size.height;
+                    imageView.frame = CGRectMake(min * CHEETSTAROFFSET, min * CHEETSTAROFFSET,
+                                                 min * CHEATSTARSIZE, min * CHEATSTARSIZE);
+                    [cardView addSubview:imageView];                    
+                }
             } else {
                 if (self.removeMatchingCards) {
                     [self.cardViews removeObject:cardView];

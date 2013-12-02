@@ -125,8 +125,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J0W-OC-vF6">
-                                <rect key="frame" x="20" y="385" width="174" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J0W-OC-vF6">
+                                <rect key="frame" x="20" y="385" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="x9g-CY-7F7"/>
+                                    <constraint firstAttribute="width" constant="50" id="1ol-zz-C2q"/>
                                 </constraints>
                                 <state key="normal" title="Deal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="p9z-zN-R1J"/>
+                                    <constraint firstAttribute="width" constant="40" id="yKG-jo-TZI"/>
                                 </constraints>
                                 <state key="normal" title="+3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,20 +180,41 @@
                                     <outletCollection property="gestureRecognizers" destination="8m2-p6-2rO" appends="YES" id="ti3-7l-jLH"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJY-TY-TFr">
+                                <rect key="frame" x="164" y="381" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="obN-5h-5JZ"/>
+                                </constraints>
+                                <state key="normal" title="?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="touchCheatButton:" destination="qym-hW-87s" eventType="touchUpInside" id="l7K-G5-qzf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="gnh-9S-DwG" firstAttribute="leading" secondItem="gYE-YJ-ejA" secondAttribute="trailing" constant="8" symbolic="YES" id="Bul-t9-ljY"/>
-                            <constraint firstAttribute="trailing" secondItem="rR6-uw-oZ9" secondAttribute="trailing" id="FjQ-3O-jKB"/>
-                            <constraint firstItem="gYE-YJ-ejA" firstAttribute="leading" secondItem="J0W-OC-vF6" secondAttribute="trailing" constant="8" symbolic="YES" id="Lgr-1I-ZzK"/>
-                            <constraint firstItem="rR6-uw-oZ9" firstAttribute="leading" secondItem="rlL-7B-jNR" secondAttribute="leading" id="Llx-Kd-Fi6"/>
-                            <constraint firstItem="gYE-YJ-ejA" firstAttribute="top" secondItem="rR6-uw-oZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="NY1-5T-BZi"/>
-                            <constraint firstAttribute="bottom" secondItem="gYE-YJ-ejA" secondAttribute="bottom" constant="20" symbolic="YES" id="b1L-ap-03S"/>
-                            <constraint firstItem="rR6-uw-oZ9" firstAttribute="top" secondItem="rlL-7B-jNR" secondAttribute="top" constant="20" symbolic="YES" id="bOu-N9-cKG"/>
-                            <constraint firstItem="J0W-OC-vF6" firstAttribute="leading" secondItem="rlL-7B-jNR" secondAttribute="leading" constant="20" symbolic="YES" id="eXV-F2-fic"/>
-                            <constraint firstItem="J0W-OC-vF6" firstAttribute="baseline" secondItem="gYE-YJ-ejA" secondAttribute="baseline" id="gm0-HG-Bxy"/>
-                            <constraint firstItem="gnh-9S-DwG" firstAttribute="baseline" secondItem="gYE-YJ-ejA" secondAttribute="baseline" id="kf8-Zt-Awi"/>
-                            <constraint firstAttribute="trailing" secondItem="gnh-9S-DwG" secondAttribute="trailing" constant="20" symbolic="YES" id="oc5-RI-Sb5"/>
+                            <constraint firstItem="ZJY-TY-TFr" firstAttribute="top" secondItem="rR6-uw-oZ9" secondAttribute="bottom" constant="8" symbolic="YES" id="4Df-d4-FfY"/>
+                            <constraint firstItem="rR6-uw-oZ9" firstAttribute="leading" secondItem="rlL-7B-jNR" secondAttribute="leading" id="9MZ-HQ-tNr"/>
+                            <constraint firstItem="rR6-uw-oZ9" firstAttribute="top" secondItem="rlL-7B-jNR" secondAttribute="top" constant="20" symbolic="YES" id="FWQ-9h-E9c"/>
+                            <constraint firstItem="gnh-9S-DwG" firstAttribute="leading" secondItem="gYE-YJ-ejA" secondAttribute="trailing" constant="8" symbolic="YES" id="Hca-Ad-GhG"/>
+                            <constraint firstAttribute="trailing" secondItem="gnh-9S-DwG" secondAttribute="trailing" constant="20" symbolic="YES" id="RXJ-xG-JTd"/>
+                            <constraint firstAttribute="bottom" secondItem="ZJY-TY-TFr" secondAttribute="bottom" constant="20" symbolic="YES" id="STE-wE-uLl"/>
+                            <constraint firstAttribute="trailing" secondItem="rR6-uw-oZ9" secondAttribute="trailing" id="erX-Xs-enH"/>
+                            <constraint firstItem="gYE-YJ-ejA" firstAttribute="baseline" secondItem="ZJY-TY-TFr" secondAttribute="baseline" id="ery-Wt-Ze1"/>
+                            <constraint firstItem="gYE-YJ-ejA" firstAttribute="baseline" secondItem="gnh-9S-DwG" secondAttribute="baseline" id="gEm-Sl-BX5"/>
+                            <constraint firstItem="gYE-YJ-ejA" firstAttribute="leading" secondItem="ZJY-TY-TFr" secondAttribute="trailing" constant="8" symbolic="YES" id="gXd-wU-rxq"/>
+                            <constraint firstItem="J0W-OC-vF6" firstAttribute="leading" secondItem="rlL-7B-jNR" secondAttribute="leading" constant="20" symbolic="YES" id="hiq-XL-fXz"/>
+                            <constraint firstItem="ZJY-TY-TFr" firstAttribute="baseline" secondItem="J0W-OC-vF6" secondAttribute="baseline" id="mEB-TM-Sus"/>
+                            <constraint firstItem="ZJY-TY-TFr" firstAttribute="leading" secondItem="J0W-OC-vF6" secondAttribute="trailing" constant="8" symbolic="YES" id="mEF-PD-4Tw"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
